@@ -1,0 +1,22 @@
+<main class="form-signin w-100 m-auto" style="max-width: 360px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+    <div class="text-center mb-4">
+      <img src="bootstrap-logo.svg" alt="Logo" width="72" height="57">
+      <h1 class="h4 mb-3 fw-bold">Create Your Account</h1>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input name="username" type="text" [(ngModel)]="model.username" class="form-control" id="floatingInput" placeholder="Username">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-4">
+      <input name="password" type="password" [(ngModel)]="model.password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="btn btn-primary w-100 mb-2" type="submit">Register</button>
+    <button class="btn btn-outline-secondary w-100" type="button" (click)="onCancel()">Cancel</button>
+
+    <p class="mt-4 text-center text-muted">© 2017–2024</p>
+  </form>
+</main>
