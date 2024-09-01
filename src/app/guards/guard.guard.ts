@@ -7,10 +7,6 @@ export const guardGuard: CanActivateFn = (route, state) => {
   const accountService = inject(AccountService)
   const toast = inject(ToastrService);
 
-  if(accountService.currentUser()) {
-    return true;
-  } else {
-    toast.error("You shall not access this resource!")
-    return false;
-  }
+  return !!accountService.currentUser();
+
 };

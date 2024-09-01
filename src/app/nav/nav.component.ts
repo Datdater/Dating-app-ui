@@ -25,7 +25,7 @@ export class NavComponent {
         this.router.navigateByUrl("/members");
       },
       (error) => {
-        this.toast.error(error);
+        this.toast.error(error.message);
       }
     )
   }

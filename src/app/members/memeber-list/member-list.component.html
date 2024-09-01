@@ -1,3 +1,14 @@
-<div>
-  <p>memeber-list works!</p>
+<div style="text-align: center; margin-top: 60px;">
+  <h2 style="font-weight: bold; color: #343a40;">
+    Member List
+  </h2>
 </div>
+
+<div class="row justify-content-center" style="margin-top: 20px;">
+  @for (member of members; track member.id) {
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <app-member-card [member]="member"></app-member-card>
+    </div>
+  }
+</div>
+
