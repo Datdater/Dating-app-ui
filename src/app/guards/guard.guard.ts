@@ -5,8 +5,6 @@ import {ToastrService} from "ngx-toastr";
 
 export const guardGuard: CanActivateFn = (route, state) => {
   const accountService = inject(AccountService)
-  const toast = inject(ToastrService);
 
   return !!accountService.currentUser();
-
 };
