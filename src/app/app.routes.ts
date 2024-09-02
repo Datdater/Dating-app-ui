@@ -14,7 +14,7 @@ export const routes: Routes = [
     canActivate: [guardGuard],
     children: [
       {path: 'members', component: MemberListComponent, canActivate: [guardGuard]},
-      {path: 'members/:id', component: MemberDetailComponent},
+      {path: 'members/:username', component: MemberDetailComponent},
       {path: 'lists', component: ListComponent},
       {path: 'messages', component: MessageComponent},
     ]
