@@ -5,6 +5,7 @@ import {MembersService} from "../../services/members.service";
 import {TabsModule} from "ngx-bootstrap/tabs";
 import {FormsModule, NgForm} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
+import {UpdateMember} from "../../model/UpdateMember";
 
 @Component({
   selector: 'app-member-edit',
@@ -41,6 +42,12 @@ export class MemberEditComponent implements OnInit{
   }
 
   updateMember() {
-    this.toast.success("Updated profile successfully!");
+    this.memberService.updateMember(this.editForm?.value).subscribe({
+      next: () => {
+        this.toast.success("Updated profile successfully!")
+        this.editForm?.reset(this.member)
+      },
+      error: err => this.toast.error(err)
+    })
   }
 }
