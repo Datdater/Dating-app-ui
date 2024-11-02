@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Member} from "../../model/Member";
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {GalleryComponent, GalleryItem, ImageItem} from "ng-gallery";
+import {AccountService} from "../../services/account.service";
 
 @Component({
   selector: 'app-member-detail',
@@ -14,6 +15,7 @@ import {GalleryComponent, GalleryItem, ImageItem} from "ng-gallery";
 })
 export class MemberDetailComponent implements OnInit{
   private memberService = inject(MembersService);
+  accountService = inject(AccountService);
   private route = inject(ActivatedRoute);
   member?: Member;
   images: GalleryItem[] = []

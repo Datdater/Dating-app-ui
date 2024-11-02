@@ -17,7 +17,10 @@ export class MembersService {
 
   getMembers() {
     return this.http.get<Member[]>(`${this.baseUrl}` + 'user/').subscribe({
-      next: res => {this.members.set(res)}
+      next: res => {
+        const memberList = res.filter(value => value.userName !== this.accountService.currentUser()?.username);
+        this.members.set(memberList);
+      }
     });
   }
 
@@ -27,6 +30,13 @@ export class MembersService {
 
   updateMember(member: UpdateMember) {
     return this.http.put(`${this.baseUrl}` + 'user', member);
+  }
+  setMainPhoto(photoId: number) {
+    return this.http.put(`${this.baseUrl}` + 'user/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(`${this.baseUrl}` + 'user/delete-photo/' + photoId);
   }
 
 }

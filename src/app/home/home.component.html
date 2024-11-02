@@ -10,7 +10,10 @@
       <p class="lead">
         Itachi Uchiha is a brilliantly crafted character, embodying the themes of sacrifice and moral ambiguity in Naruto. His actions—massacring his own clan—are both horrifying and heartbreaking, driven by a complex blend of duty, love, and a desire for peace.</p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" (click)="onToggle()">Register</button>
+        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2"
+                (click)="onToggle()"
+                [disabled]="this.accountService.currentUser()"
+                >Register</button>
         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
       </div>
     </div>

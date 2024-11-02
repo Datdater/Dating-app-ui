@@ -6,24 +6,23 @@ import {NavComponent} from "./nav/nav.component";
 import {AccountService} from "./services/account.service";
 import {HomeComponent} from "./home/home.component";
 import {NgxSpinnerComponent} from "ngx-spinner";
-
+import {FormsModule} from "@angular/forms";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, NavComponent, HomeComponent, NgxSpinnerComponent],
+  imports: [RouterOutlet, NgForOf, NavComponent, HomeComponent, NgxSpinnerComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
 
+export class AppComponent implements OnInit{
   title = 'human-shop';
-  http = inject(HttpClient);
-  users: any
   private accountService = inject(AccountService);
 
+  constructor() {
+  }
   ngOnInit(): void {
     this.setCurrentUser()
-
   }
 
   setCurrentUser() {
@@ -32,4 +31,8 @@ export class AppComponent implements OnInit{
     const user = JSON.parse(userString);
     this.accountService.currentUser.set(user);
   }
+
+
+
+
 }

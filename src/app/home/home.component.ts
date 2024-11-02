@@ -1,6 +1,7 @@
-import {Component, input, Input} from '@angular/core';
+import {Component, inject, input, Input} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {RegisterComponent} from "../register/register.component";
+import {AccountService} from "../services/account.service";
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ import {RegisterComponent} from "../register/register.component";
 })
 export class HomeComponent {
   registerBtn: boolean = true;
+  accountService = inject(AccountService);
+
 
   constructor() {
   }

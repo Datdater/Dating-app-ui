@@ -21,6 +21,7 @@ export const appConfig: ApplicationConfig = {
         positionClass: 'toast-bottom-right',
         preventDuplicates: true,}
     ),
+
     importProvidersFrom(NgxSpinnerModule)
   ]
 };

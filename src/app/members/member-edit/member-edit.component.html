@@ -16,7 +16,7 @@
     </div>
     <div class="col-4">
       <div class="card">
-        <img src="{{member.photoUrl}}"
+        <img src="{{accountService.currentUser()?.photoUrl}}"
              alt="{{member.knownAs}}"
              class="card-img img-thumbnail">
         <div class="card-body">
@@ -87,8 +87,11 @@
           </form>
         </tab>
 
-        <tab heading="Messages">
-          <p>Message go here</p>
+        <tab heading="Edit photo">
+          <app-photo-editor
+            [member]="member"
+            (memberChange)="onMemberChange($event)"
+          />
         </tab>
       </tabset>
     </div>

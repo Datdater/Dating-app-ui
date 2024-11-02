@@ -28,9 +28,11 @@
         </ul>
 
         <div class="btn-group" dropdown>
+          <img src="{{accountService.currentUser()?.photoUrl}}" sytle="max-height: 50px; display:inline"/>
           <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                   aria-controls="dropdown-basic">
-            Welcome {{ accountService.currentUser()?.username }} <span class="caret"></span>
+            Welcome {{ accountService.currentUser()?.username }}
+            <span class="caret"></span>
           </button>
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
               role="menu" aria-labelledby="button-basic">
