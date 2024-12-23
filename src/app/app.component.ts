@@ -18,15 +18,15 @@ import {FormsModule} from "@angular/forms";
 export class AppComponent implements OnInit{
   title = 'human-shop';
   private accountService = inject(AccountService);
-
   constructor() {
+
   }
   ngOnInit(): void {
     this.setCurrentUser()
   }
 
   setCurrentUser() {
-    const userString = localStorage.getItem("user");
+    const userString = localStorage?.getItem("user");
     if(!userString) return
     const user = JSON.parse(userString);
     this.accountService.currentUser.set(user);

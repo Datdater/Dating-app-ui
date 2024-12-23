@@ -1,5 +1,5 @@
 export const environment = {
-  apiBaseUrl: "https://dating-app-dat-d2h0gfdfhpebgcc6.southeastasia-01.azurewebsites.net/api/",
+  apiBaseUrl: "https://localhost:7025/api/",
   firebaseConfig : {
     apiKey: "AIzaSyA827PKagrShMqrn_bQ90641n1pQssFH_Y",
     authDomain: "dating-app-75b97.firebaseapp.com",

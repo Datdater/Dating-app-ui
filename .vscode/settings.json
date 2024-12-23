@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/ce95b6bd-0923-4da2-ab40-68c905cb2308/resourceGroups/dating-app-dat_group/providers/Microsoft.Web/sites/datingUi",
+    "appService.deploySubpath": "."
+}

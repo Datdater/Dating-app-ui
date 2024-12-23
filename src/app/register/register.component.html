@@ -1,39 +1,66 @@
-<main class="form-signin w-100 m-auto" style="max-width: 360px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
+<main class="form-signin w-100 m-auto" style="max-width: 500px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
   <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <div class="text-center mb-4">
       <img src="bootstrap-logo.svg" alt="Logo" width="72" height="57">
       <h1 class="h4 mb-3 fw-bold">Create Your Account</h1>
     </div>
+    <app-text-input
+      [formControl]="$any(registerForm.controls['username'])"
+      [label]="'Username'"
+    >
+    </app-text-input>
 
-    <div class="form-floating mb-3">
-      <input name="username" type="text"
-             formControlName="username"
-             class="form-control"
-             id="floatingInput"
-             placeholder="Username">
-      <label for="floatingInput">Username</label>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" value="male" formControlName="gender" name="gender" id="male"/>
+      <label class="form-check-label" for="male">Male</label>
     </div>
-    <div class="form-floating mb-4">
-      <input name="password"
-             type="password"
-             formControlName="password"
-             class="form-control"
-             id="floatingPassword"
-             placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <div class="form-floating mb-4">
-      <input name="confirmPassword"
-             id="confirmPassword"
-        type="password"
-        class="form-control"
-             placeholder="Confirm password"
-             formControlName="confirmPassword"
-      >
-      <label for="confirmPassword">Confirm Password</label>
+    <div class="form-check">
+      <input class="form-check-input" value="female" type="radio" name="gender" id="female" formControlName="gender"/>
+      <label class="form-check-label" for="female">Female</label>
     </div>
 
-    <button class="btn btn-primary w-100 mb-2" type="submit">Register</button>
+
+    <app-text-input
+      [formControl]="$any(registerForm.controls['knownAs'])"
+      [label]="'Know as'"
+    >
+    </app-text-input>
+    <app-date-picker
+      [formControl]="$any(registerForm.controls['dateOfBirth'])"
+      [label]="'Date of birth'"
+    >
+    </app-date-picker>
+    <app-text-input
+      [formControl]="$any(registerForm.controls['city'])"
+      [label]="'City'"
+    >
+    </app-text-input>
+    <app-text-input
+      [formControl]="$any(registerForm.controls['country'])"
+      [label]="'Country'"
+    >
+    </app-text-input>
+    <app-text-input
+      [formControl]="$any(registerForm.controls['password'])"
+      [label]="'Password'"
+      [type]="'password'"
+    >
+    </app-text-input>
+    <app-text-input
+      [formControl]="$any(registerForm.controls['confirmPassword'])"
+      [label]="'Confirm Password'"
+      [type]="'password'"
+    >
+    </app-text-input>
+
+    <div *ngIf="validationErrors?.length" class="alert alert-danger">
+      <ul>
+        <li *ngFor="let error of validationErrors">{{ error }}</li>
+      </ul>
+    </div>
+
+    <button  class="btn btn-primary w-100 mb-2" type="submit">Register</button>
     <button class="btn btn-outline-secondary w-100" type="button" (click)="onCancel()">Cancel</button>
 
     <p class="mt-4 text-center text-muted">© 2017–2024</p>
